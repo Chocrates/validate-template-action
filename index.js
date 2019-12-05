@@ -12,6 +12,7 @@ run = async () => {
         core.debug(`Starting Parsing on labels ${labels.join(',')}`)
 
         core.debug({payload: JSON.stringify(github.context.payload)})
+        console.log(github.context.payload)
     } catch ( error ) {
         core.setFailed(`Failure ${error}`) 
     }
