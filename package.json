@@ -1,0 +1,27 @@
+{
+  "name": "validate-template-action",
+  "version": "1.0.0",
+  "description": "* A GitHub action that validates new issues with a specific tag against a Markdown template",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chocrates/validate-template-action.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chocrates/validate-template-action/issues"
+  },
+  "homepage": "https://github.com/Chocrates/validate-template-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.1.1",
+    "@actions/github": "^1.1.0"
+  },
+  "devDependencies": {
+    "jest": "*",
+    "@octokit/rest": "^16.35.0"
+  }
+}

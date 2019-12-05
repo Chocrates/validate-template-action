@@ -1,0 +1,12 @@
+name: 'Issue Validator Action'
+description: 'Validates certain issues body''s against a specified markdown template'
+inputs:
+  ISSUE_TAGS:
+    description: 'Array of Issue Labels to validate'
+    required: true
+  ISSUE_TEMPLATE:
+    description: 'Url of the template to validate the issue body against'
+    required: true
+runs:
+  using: 'node12'
+  main: './index.js'
