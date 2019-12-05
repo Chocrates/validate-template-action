@@ -14,7 +14,7 @@ jobs:
         env:
           CI: true
       - name: Run Action
-        uses: ./action
+        uses: ./
         with:
           ISSUE_LABELS:
             bug 
