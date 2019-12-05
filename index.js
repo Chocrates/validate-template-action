@@ -4,7 +4,10 @@ const github = require('@actions/github')
 
 run = async () => {
     try {
-        core.debug('Test')
+        const labels = core.getInput('ISSUE_LABELS').split(',')
+        const template = core.getInput('ISSUE_TEMPLATE')
+
+        core.debug(`Starting Parsing on labels ${labels.join(',')}`)
     } catch ( error ) {
         core.setFailed(`Failure ${error}`) 
     }
