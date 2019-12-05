@@ -6,7 +6,12 @@ const template = core.getInput('ISSUE_TEMPLATE')
 const token = process.env['THIS.OPTIONS.GITHUB_TOKEN']
 
 const Runner = require('./runner')
-const runner = new Runner({core: core, github: github, labels: labels, template: template, token: token})
+const runner = new Runner({
+    core: core,
+    github: github,
+    labels: labels,
+    template: template,
+    token: token})
 
 run = runner.run
 run()
