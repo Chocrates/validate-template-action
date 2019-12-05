@@ -4,7 +4,8 @@
   "description": "* A GitHub action that validates new issues with a specific tag against a Markdown template",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+      "test": "jest",
+      "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand"
   },
   "repository": {
     "type": "git",
