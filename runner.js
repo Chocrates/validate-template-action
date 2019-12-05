@@ -1,12 +1,13 @@
 module.exports =  class Runner {
-    constructor(options) {
-        this.options = options
+    constructor(_options) {
+        this.options = _options
     }
 
     async run(){
         try {
             console.log('Testing...')
             console.log(this.options)
+            console.log('Testing...')
             const octokit = new this.options.github.GitHub(this.options.token)
 
             this.options.core.debug(`Starting Parsing on labels ${this.options.labels.join(',')}`)
