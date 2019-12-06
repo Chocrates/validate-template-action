@@ -1,5 +1,6 @@
 const core = require('@actions/core')
 const github = require('@actions/github')
+const nock = require('nock')
 
 const Runner = require('./runner')
 
@@ -168,13 +169,31 @@ beforeEach(() => {
    }
    }
     github.context.payload = editedPayload
+    nock.disableNetConnect()
 })
 
 describe('Runner Tests', () => {
     it('Runs Runner with our sample payload', async () => {
         const debugMock = jest.spyOn(core,'debug')
         const setFailedMock = jest.spyOn(core, 'setFailed')
-        const runner = new Runner({core: core, github: github, labels: ['bug'], template: './README.md', token: '123'})
+        jest.genMockFromModule('@actions/github')
+        jest.mock('@actions/github')
+
+        const octokit = new github.GitHub('123')
+        nock("https://api.github.com").
+            post(`/repos/testuser/testrepo/issues/4/comments`).
+            reply(200)
+
+        const runner = new Runner({
+            core: core,
+            github: github,
+            octokit: octokit,
+            labels: ['bug'],
+            template: './README.md',
+            token: '123',
+            owner: "testuser",
+            repo: "testrepo"
+        })
         await runner.run()
 
         expect(setFailedMock).toHaveBeenCalledTimes(0)
